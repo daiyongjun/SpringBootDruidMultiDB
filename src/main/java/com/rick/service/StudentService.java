@@ -8,7 +8,7 @@ public interface StudentService {
     /**
      * 插入学生信息
      * @param student 学生信息
-     * @param dbType 数据源Id
+     * @param dsId 数据源Id
      * @return 插入成功后的学生id
      */
     int insertStudent(Student student, String dsId);

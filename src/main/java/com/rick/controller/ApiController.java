@@ -87,17 +87,6 @@ public class ApiController {
             else
             {
                 resultMap.put(RESULT_CONSTANTS, SUCCESS_RESULT);
-
-                Student newStudent = studentService.findStudentById(id,dbType);
-
-                Map<String, String> studentMap = new HashMap<>();
-                studentMap.put(ID_ATTRIBUTE_NAME,Integer.toString(id));
-                studentMap.put(NAME_ATTRIBUTE_NAME,newStudent.getName());
-                studentMap.put(CLASS_ATTRIBUTE_NAME,newStudent.getClassName());
-                studentMap.put(CRAETE_DATE_ATTRIBUTE_NAME, sdf.format(newStudent.getCreateDate()));
-                studentMap.put(UPDATE_DATE_ATTRIBUTE_NAME, sdf.format(newStudent.getUpdateDate()));
-                resultMap.put(STUDENT_NODE_NAME,studentMap);
-
                 String resultStr = JSON.toJSONString(resultMap);
                 response = new ResponseEntity<>(resultStr,headers, HttpStatus.OK);
             }

@@ -23,9 +23,9 @@ public class StudentServiceImpl implements StudentService {
      * @param dbType 数据源Id
      * @return 插入成功后的学生id
      */
+	@DataSourceAnnotation
 	public int insertStudent(Student student, String dsId) {
-		 studentMapper.insertStudent(student);
-	     return student.getId();
+	     return studentMapper.insertSelective(student);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
      */
 	@DataSourceAnnotation
 	public Student findStudentById(int id, String dsId) {
-		return studentMapper.findStudentById(id);
+		return studentMapper.selectByPrimaryKey(id);
 	}
 
    
